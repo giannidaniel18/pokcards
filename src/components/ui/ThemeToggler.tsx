@@ -5,7 +5,7 @@ import { BsFillMoonStarsFill } from "react-icons/bs";
 import { IoSunny } from "react-icons/io5";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/common/Button";
+import { Button } from "@/components/ui/Button";
 import {
   DropdownMenu,
   DropdownMenuContent,
