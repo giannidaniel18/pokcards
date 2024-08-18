@@ -1,18 +1,10 @@
 "use client";
 import React from "react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "../user/avatar";
 import { ThemeToggler } from "./ThemeToggler";
 import BurgerMenu from "./BurgerMenu";
 import UserMenu from "../user/UserMenu";
 import Link from "next/link";
-
-const MENU_ITEMS: { id: string; label: string }[] = [
-  { id: "cart_searcher", label: "Cart searcher" },
-  { id: "deck_builder", label: "Deck builder" },
-  { id: "my_carts", label: "My carts" },
-  { id: "boosters", label: "Boosters" },
-];
+import { MENU_ITEMS } from "@/constants";
 
 const NavBar = () => {
   return (
