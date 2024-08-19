@@ -23,13 +23,13 @@ export const PokemonCard: FC<Props> = ({ img, alt, id, size = "md" }) => {
 
   return (
     <Link key={id} href={`/${id}`}>
-      <figure
+      <div
         className={cn(
           ` relative ${cardSize} cursor-pointer overflow-hidden rounded-xl border p-4 shadow-md dark:shadow-slate-700`
         )}
       >
         <Image alt={alt} fill src={img} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" priority />
-      </figure>
+      </div>
     </Link>
   );
 };

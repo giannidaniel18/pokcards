@@ -8,7 +8,9 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type, ...props }, ref) => {
   return (
     <div className="relative flex px-2">
-      <CiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 z-10" />
+      {type === "search" && (
+        <CiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 z-10" />
+      )}
       <input
         type={type}
         className={cn(
