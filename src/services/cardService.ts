@@ -1,5 +1,5 @@
 import http from "@/config/http";
-import { CardResponse } from "@/types/response/CardResponse";
+import { getCardResponseDto } from "@/types/dtos/card/getCard/getCardResponse.dto";
 
 export class cardService {
   static getCardByName = (
@@ -20,6 +20,6 @@ export class cardService {
 
     const queryParams = `cards?q=${qFilterName}`;
 
-    return http.get<CardResponse>(`${queryParams}`);
+    return http.get<getCardResponseDto>(`${queryParams}`);
   };
 }

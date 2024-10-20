@@ -2,14 +2,15 @@
 import { PokemonCard } from "@/components/pokemon/PokemonCard";
 import { Input } from "@/components/ui/Input";
 import { cardService } from "@/services/cardService";
-import { pokemonCard } from "@/types/models/pokemonCard";
+import { CardEntity } from "@/types/entities/card/card.entity";
+
 import Link from "next/link";
 import { useSearchParams, usePathname, useRouter, useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const CardsSearcherPage = () => {
   const searchparams = useSearchParams();
-  const [cards, setCards] = useState<pokemonCard[] | null>(null);
+  const [cards, setCards] = useState<CardEntity[] | null>(null);
   const [nameFilter, setNameFilter] = useState<string>("");
   const [loading, setLoading] = useState(false);
 

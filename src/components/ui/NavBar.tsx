@@ -5,8 +5,12 @@ import BurgerMenu from "./BurgerMenu";
 import UserMenu from "../user/UserMenu";
 import Link from "next/link";
 import { MENU_ITEMS } from "@/constants";
+import useUserStore from "@/stores/auth/userStore";
+import { Button } from "./Button";
 
 const NavBar = () => {
+  const { userName } = useUserStore();
+  console.log("userName", userName);
   return (
     <div className=" flex flex-row justify-between items-center w-full h-20 sticky top-0 z-50 px-4 ">
       <div className="sm:hidden">
@@ -23,7 +27,13 @@ const NavBar = () => {
 
       <div className="flex flex-row gap-2">
         <ThemeToggler />
-        <UserMenu />
+        {userName ? (
+          <UserMenu />
+        ) : (
+          <Button variant={"outline"}>
+            <Link href={`/auth/login`}>Logo</Link>
+          </Button>
+        )}
       </div>
     </div>
   );

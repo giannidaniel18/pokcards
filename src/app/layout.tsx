@@ -4,6 +4,8 @@ import "./globals.css";
 import NavBar from "../components/ui/NavBar";
 import { ThemeProvider } from "@/components/theme-provider";
 
+import useUserStore from "@/stores/auth/userStore";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
