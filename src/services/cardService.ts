@@ -7,18 +7,18 @@ export class cardService {
     type: string = "",
     supertype: string = "",
     page: number = 1,
-    cantidad: number = 50
+    cantidad: number = 20
   ) => {
     const qFilterName = `name:${name}*`;
     // const qFilterType = `types:${type}*`;
     // const qFilterSuperTypes = `supertype:${supertype}`;
-    // const qFilterCurrentPage = `&page=${page}`;
+    const qFilterCurrentPage = `&page=${page}`;
 
     // const queryParams = `cards?q=${qFilterSuperTypes} ${
     //   supertype !== "pokemon" ? qFilterName : `${qFilterName} ${qFilterType}`
     // } &pageSize=${cantidad} ${qFilterCurrentPage}`;
 
-    const queryParams = `cards?q=${qFilterName}`;
+    const queryParams = `cards?q=${qFilterName}${qFilterCurrentPage}&pageSize=${cantidad}`;
 
     return http.get<getCardResponseDto>(`${queryParams}`);
   };

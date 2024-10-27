@@ -10,7 +10,7 @@ import { Button } from "./Button";
 
 const NavBar = () => {
   const { userName } = useUserStore();
-  console.log("userName", userName);
+
   return (
     <div className=" flex flex-row justify-between items-center w-full h-20 sticky top-0 z-50 px-4 ">
       <div className="sm:hidden">
@@ -31,7 +31,7 @@ const NavBar = () => {
           <UserMenu />
         ) : (
           <Button variant={"outline"}>
-            <Link href={`/auth/login`}>Logo</Link>
+            <Link href={`/auth/login`}>Login</Link>
           </Button>
         )}
       </div>

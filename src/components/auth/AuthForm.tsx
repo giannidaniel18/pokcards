@@ -7,7 +7,8 @@ import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import DividerWithLabel from "../ui/DividerWithLabel";
 import { FcGoogle } from "react-icons/fc";
-import { GitBranch, User } from "lucide-react";
+
+import { useGoogleLogin } from "@react-oauth/google";
 import Link from "next/link";
 
 const loginSchema = z.object({
@@ -27,6 +28,9 @@ const registerSchema = loginSchema
 export default function AuthForm({ type }: { type: "login" | "register" }) {
   const [loading, setLoading] = useState(false);
   const isLogin = type === "login";
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
 
   const {
     register,
@@ -109,7 +113,13 @@ export default function AuthForm({ type }: { type: "login" | "register" }) {
         </div>
       )}
       <DividerWithLabel label="Or continue whith" />
-      <Button variant={"outline"} className="w-full rounded-md shadow-sm space-x-4" size={"lg"}>
+      <Button
+        type="button"
+        variant={"outline"}
+        className="w-full rounded-md shadow-sm space-x-4"
+        size={"lg"}
+        onClick={() => login()}
+      >
         <FcGoogle size={30} className="p-1" />
         Gmail
       </Button>
